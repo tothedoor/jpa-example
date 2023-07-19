@@ -30,4 +30,8 @@ public class UserForLazy {
     public Set<String> getTelNoSet() {
         return telNoSet;
     }
+
+    public void setTelNoSet(Set<String> telNoSet) {
+        this.telNoSet = telNoSet;
+    }
 }
