@@ -1,4 +1,4 @@
-package collection.set.domain;
+package collection.set;
 
 import jakarta.persistence.*;
 
@@ -7,12 +7,12 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user", schema = "dev")
-public class UserForLazy {
+public class UserForEager {
 
     @Id
     private long id;
     private String name;
-    @ElementCollection //default fetch type = FetchType.LAZY
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
             name = "user_tel",
             joinColumns = @JoinColumn(name = "user_id")
@@ -20,18 +20,14 @@ public class UserForLazy {
     @Column(name = "tel_no")
     private Set<String> telNoSet = new HashSet<>();
 
-    protected UserForLazy() {}
+    protected UserForEager() {}
 
-    public UserForLazy(String name, Set<String> telNoSet) {
+    public UserForEager(String name, Set<String> telNoSet) {
         this.name = name;
         this.telNoSet = telNoSet;
     }
 
     public Set<String> getTelNoSet() {
         return telNoSet;
-    }
-
-    public void setTelNoSet(Set<String> telNoSet) {
-        this.telNoSet = telNoSet;
     }
 }

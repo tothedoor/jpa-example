@@ -1,7 +1,7 @@
 package main;
 
-import collection.set.domain.UserForEager;
-import collection.set.domain.UserForLazy;
+import collection.set.UserForEager;
+import collection.set.UserForLazy;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jpabasic.reserve.jpa.EMF;
